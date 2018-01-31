@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import com.android.hao.hiweather.db.City;
 import com.android.hao.hiweather.db.County;
 import com.android.hao.hiweather.db.Province;
+import com.android.hao.hiweather.gson.Weather;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -85,6 +87,22 @@ public class Utility {
         return false;
     }
 
+
+    /**
+     * Parse the Json response to the instance of Weather object
+     */
+    public static Weather handleWeatherResponse(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+            String weatherContent = jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent, Weather.class);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
 }

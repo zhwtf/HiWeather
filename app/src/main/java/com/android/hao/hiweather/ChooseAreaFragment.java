@@ -1,6 +1,7 @@
 package com.android.hao.hiweather;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.android.hao.hiweather.db.City;
 import com.android.hao.hiweather.db.County;
 import com.android.hao.hiweather.db.Province;
+import com.android.hao.hiweather.gson.Weather;
 import com.android.hao.hiweather.util.HttpUtil;
 import com.android.hao.hiweather.util.Utility;
 
@@ -92,6 +94,12 @@ public class ChooseAreaFragment extends Fragment{
                 } else if (currentLevel == LEVEL_CITY) {
                     mSelectedCity = mCityList.get(position);
                     queryCounties();
+                } else if (currentLevel == LEVEL_COUNTY) {
+                    String weatherId = mCountyList.get(position).getWeatherId();
+                    Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                    intent.putExtra("weather_id", weatherId);
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });

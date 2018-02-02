@@ -19,6 +19,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.hao.hiweather.service.AutoUpdateService;
 import com.bumptech.glide.Glide;
 import com.android.hao.hiweather.gson.Forecast;
 import com.android.hao.hiweather.gson.Weather;
@@ -267,7 +268,8 @@ public class WeatherActivity extends AppCompatActivity {
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
 
-
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
 
     }
 

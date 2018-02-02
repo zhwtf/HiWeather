@@ -125,6 +125,14 @@ public class WeatherActivity extends AppCompatActivity {
             }
         });
 
+        // set the drawer layout action
+        navButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
 
         String bingPic = prefs.getString("bing_pic", null);
         if (bingPic != null) {

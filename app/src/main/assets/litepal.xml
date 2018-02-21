@@ -6,9 +6,9 @@
     <version value="1" />
 
     <list>
-        <mapping class="com.android.hao.db.Province" />
-        <mapping class="com.android.hao.db.City" />
-        <mapping class="com.android.hao.db.County" />
+        <mapping class="com.android.hao.hiweather.db.Province" />
+        <mapping class="com.android.hao.hiweather.db.City" />
+        <mapping class="com.android.hao.hiweather.db.County" />
     </list>
 
 </litepal>

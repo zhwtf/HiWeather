@@ -7,44 +7,40 @@ import org.litepal.crud.DataSupport;
  */
 
 public class City extends DataSupport {
-    private int mId;
-
-    private String mCityName;
-
-    private int mCityCode;
-
-    private int mProvinceId;
-
+    private int id;
+    private String cityName; //市的名字
+    private int cityCode;    //市的代号
+    private int provinceId;  //记录市所属的省ID
 
     public int getId() {
-        return mId;
-    }
-
-    public void setId(int id) {
-        mId = id;
+        return id;
     }
 
     public String getCityName() {
-        return mCityName;
-    }
-
-    public void setCityName(String cityName) {
-        mCityName = cityName;
+        return cityName;
     }
 
     public int getCityCode() {
-        return mCityCode;
-    }
-
-    public void setCityCode(int cityCode) {
-        mCityCode = cityCode;
+        return cityCode;
     }
 
     public int getProvinceId() {
-        return mProvinceId;
+        return provinceId;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public void setCityCode(int cityCode) {
+        this.cityCode = cityCode;
     }
 
     public void setProvinceId(int provinceId) {
-        mProvinceId = provinceId;
+        this.provinceId = provinceId;
     }
 }

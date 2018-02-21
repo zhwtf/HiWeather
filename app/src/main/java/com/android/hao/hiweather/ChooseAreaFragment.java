@@ -76,7 +76,7 @@ public class ChooseAreaFragment extends Fragment{
         mTitleText = (TextView) view.findViewById(R.id.title_text);
         mBackButton = (Button) view.findViewById(R.id.back_button);
         mListView = (ListView) view.findViewById(R.id.list_view);
-        mAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, mDataList);
+        mAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, mDataList);
 
         mListView.setAdapter(mAdapter);
         return view;
@@ -153,7 +153,7 @@ public class ChooseAreaFragment extends Fragment{
     private void queryCities() {
         mTitleText.setText(mSelectedProvince.getProvinceName());
         mBackButton.setVisibility(View.VISIBLE);
-        mCityList = DataSupport.where("mProvinceId = ?", String.valueOf(mSelectedProvince.getId())).find(City.class);
+        mCityList = DataSupport.where("provinceid = ?", String.valueOf(mSelectedProvince.getId())).find(City.class);
         if (mCityList.size() > 0) {
             mDataList.clear();
             for (City city : mCityList) {
@@ -177,7 +177,7 @@ public class ChooseAreaFragment extends Fragment{
     private void queryCounties() {
         mTitleText.setText(mSelectedCity.getCityName());
         mBackButton.setVisibility(View.VISIBLE);
-        mCountyList = DataSupport.where("mCityId = ?", String.valueOf(mSelectedCity.getId())).find(County.class);
+        mCountyList = DataSupport.where("cityid = ?", String.valueOf(mSelectedCity.getId())).find(County.class);
         if (mCountyList.size() > 0) {
             mDataList.clear();
             for (County county : mCountyList) {
